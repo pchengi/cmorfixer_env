@@ -5,9 +5,9 @@
 - cmorfixer_env is a singularity container which comes with preinstalled miniconda3 
 
 # To build
-
-- sudo singularity build cmorfixerenv.simg Singularity
-
+````
+sudo singularity build cmorfixerenv.simg Singularity
+````
 # To initialize container (and optionally mount external filesystems)
 
 - If you don't have to mount any non-root filesystems, you could start the container like this:
