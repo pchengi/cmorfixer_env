@@ -4,6 +4,17 @@
 
 - cmorfixer_env is a singularity container which comes with preinstalled miniconda3 
 
+# Prerequisites
+
+You need the singularity program installed. Follow the instructions here, to install singularity on your machine.
+
+[https://singularity.lbl.gov/install-linux](https://singularity.lbl.gov/install-linux)
+
+# To download a prebuilt singularity image:
+
+- If you'd like to use a prebuilt image, you could download from the link below; if you'd rather build the container yourself, follow the build instructing in the To build section.
+- [Link to prebuilt image](https://esg-dn2.nsc.liu.se/virtualtestbed/cmorfixerenv.simg)
+
 # To build
 ````
 sudo singularity build cmorfixerenv.simg Singularity
@@ -30,6 +41,3 @@ cd /root
 script -c '/opt/cmor_fixer/cmor-fixer/cmor-fixer.py --verbose --forceid --olist --npp 1 --dry /mnt/CMIP6/ScenarioMIP/EC-Earth-Consortium/EC-Earth3/ssp126/' scriptout_cmorfix_dryrun
 ````
 
-# To download a prebuilt singularity image:
-
-- [Link to prebuilt image](https://esg-dn2.nsc.liu.se/virtualtestbed/cmorfixerenv.simg)
