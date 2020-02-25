@@ -14,5 +14,5 @@ From: debian
     /bin/bash -c 'source /etc/bashrc'
     /bin/bash -c 'source /opt/cmor_fixer/miniconda3/etc/profile.d/conda.sh'
     /bin/bash -c '/opt/cmor_fixer/miniconda3/bin/conda update -y -n base -c defaults conda'
-    cd cmor-fixer && git checkout v2.0
+    cd cmor-fixer && git checkout v2.1
     /bin/bash -c '/opt/cmor_fixer/miniconda3/bin/conda env create -f environment.yml'
