@@ -1,12 +1,17 @@
 Bootstrap: docker
 From: debian
 
+%setup
+    mkdir -p /opt/scripts
+%files
+    cmorfixerwrapper.sh /opt/scripts/
+
 %post
     apt-get update && apt-get install -y git wget make libssl-dev libpython3-dev build-essential vim screen bash
     mkdir -p /opt/cmor_fixer
     cd /opt/cmor_fixer
     export SHELL=/bin/bash
-    git clone https://github.com/EC-Earth/cmor-fixer.git
+    git clone https://github.com/pchengi/cmor-fixer.git
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
     bash Miniconda3-latest-Linux-x86_64.sh -b -u -p /opt/cmor_fixer/miniconda3
     echo 'miniconda3path=/opt/cmor_fixer/miniconda3/' >>/etc/bashrc
@@ -14,5 +19,5 @@ From: debian
     /bin/bash -c 'source /etc/bashrc'
     /bin/bash -c 'source /opt/cmor_fixer/miniconda3/etc/profile.d/conda.sh'
     /bin/bash -c '/opt/cmor_fixer/miniconda3/bin/conda update -y -n base -c defaults conda'
-    cd cmor-fixer && git checkout v3.0
+    cd cmor-fixer && git checkout v3.0-fix-nemo-vertices-reference
     /bin/bash -c '/opt/cmor_fixer/miniconda3/bin/conda env create -f environment.yml'
