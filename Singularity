@@ -8,7 +8,6 @@ From: debian
 
 %post
     apt-get update && apt-get install -y git wget make libssl-dev libpython3-dev build-essential vim screen bash
-    mkdir -p /opt/cmor_fixer
     cd /opt/cmor_fixer
     export SHELL=/bin/bash
     git clone https://github.com/pchengi/cmor-fixer.git
