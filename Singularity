@@ -1,10 +1,9 @@
 Bootstrap: docker
 From: debian
 
-%setup
-    mkdir -p /opt/scripts
 %files
-    cmorfixerwrapper.sh /opt/scripts/
+    scripts/ /opt/
+    cmor_fixer/ /opt/
 
 %post
     apt-get update && apt-get install -y git wget make libssl-dev libpython3-dev build-essential vim screen bash
