@@ -10,12 +10,13 @@ From: debian
     cd /opt/cmor_fixer
     export SHELL=/bin/bash
     git clone https://github.com/pchengi/cmor-fixer.git
-    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-    bash Miniconda3-latest-Linux-x86_64.sh -b -u -p /opt/cmor_fixer/miniconda3
-    echo 'miniconda3path=/opt/cmor_fixer/miniconda3/' >>/etc/bashrc
-    echo "alias activateminiconda3='source /opt/cmor_fixer/miniconda3/etc/profile.d/conda.sh'" >>/etc/bashrc
+    wget https://github.com/conda-forge/miniforge/releases/download/24.9.0-0/Miniforge3-24.9.0-0-Linux-x86_64.sh
+    bash Miniforge3-24.9.0-0-Linux-x86_64.sh -b -u -p /opt/cmor_fixer/mamba
+    echo "mambapath=/opt/cmor_fixer/mamba/" >>/etc/bashrc
+    echo "alias activatemamba='source /opt/cmor_fixer/mamba/etc/profile.d/conda.sh'" >>/etc/bashrc
+    echo "alias activatecmorfixer='activatemamba; conda activate cmorfixer'" >>/etc/bashrc
     /bin/bash -c 'source /etc/bashrc'
-    /bin/bash -c 'source /opt/cmor_fixer/miniconda3/etc/profile.d/conda.sh'
-    /bin/bash -c '/opt/cmor_fixer/miniconda3/bin/conda update -y -n base -c defaults conda'
-    cd cmor-fixer && git checkout check-output-filename
-    /bin/bash -c '/opt/cmor_fixer/miniconda3/bin/conda env create -f environment.yml'
+    /bin/bash -c 'source /opt/cmor_fixer/mamba/etc/profile.d/conda.sh'
+    /bin/bash -c '/opt/cmor_fixer/mamba/bin/mamba update -y --name base mamba'
+    cd cmor-fixer && git checkout 612a119a7c327edfef499f94dcfdb5695a6f4e17
+    /bin/bash -c '/opt/cmor_fixer/mamba/bin/mamba env create -f environment.yml'
