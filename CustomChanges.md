@@ -6,6 +6,11 @@ These features are as follows:
 - Ensure that nemo-vertices is refered to with a path relative to cmor-fixer.py, instead of assuming its presence in the PWD.
     - This allows cmor-fixer.py to be called from any directory, and from external scripts, without first changing directory.
 
+## Patching an upstream version
+
+- If the upstream is updated without these changes being pulled in, the easiest was is to apply the patches in the patch-files directory, to get the additional functionality.
+- Push the changed version to the fork, modify the commit line in the Singularity file, test-build, test, and commit.
+
 ## Tests to be made
 
 - Ensure that a custom output directory can be specified
