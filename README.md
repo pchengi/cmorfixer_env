@@ -62,7 +62,14 @@ A testfile with an issue detectable by cmor-fixer.py is present under the testfi
 To use the wrapper:
 
 ```bash
-singularity exec --bind testfiles:/mnt cmorfixerenv.simg bash /opt/scripts/cmorfixerwrapper.sh --verbose --olist --npp 1 --dry --output-dir /home/pchengi/outputdir /mnt/CMIP6
-2024-11-01 15:12:38 WARNING:cmor-fixer.py: Output file name /home/pchengi/outputdir/list-of-modified-files.txt already exists, trying /home/pchengi/outputdir/list-of-modified-files-2.txt...
-2024-11-01 15:12:38 INFO:cmor-fixer.py: Replacing the longitude and latitude t-grid vertices for vertices_longitude (none) in /mnt/CMIP6/chldiatos_Omon_EC-Earth3-ESM-1_abrupt-4xCO2_r1i1p1f1_gn_195401-195412.nc
+singularity exec --bind testfiles:/mnt cmorfixerenv.simg bash /opt/scripts/cmorfixerwrapper.sh --verbose --olist $HOME/outputdir --npp 1 --dry /mnt/CMIP6
+2024-11-07 15:55:12 WARNING:cmor-fixer.py: Output file name /home/pchengi/outputdir/list-of-modified-files-1.txt already exists, trying /home/pchengi/outputdir/list-of-modified-files-2.txt
+2024-11-07 15:55:13 INFO:cmor-fixer.py: Replacing the longitude and latitude t-grid vertices for vertices_longitude (none) in /mnt/CMIP6/chldiatos_Omon_EC-Earth3-ESM-1_abrupt-4xCO2_r1i1p1f1_gn_195401-195412.nc
+
+singularity exec --bind testfiles:/mnt cmorfixerenv.simg bash /opt/scripts/cmorfixerwrapper.sh --verbose --olist $HOME/outputdir --npp 2 --meta /mnt/recipe.json --dry /mnt/CMIP6
+2024-11-07 15:55:39 WARNING:cmor-fixer.py: Output file name /home/pchengi/outputdir/list-of-modified-files-1.txt already exists, trying /home/pchengi/outputdir/list-of-modified-files-2.txt
+2024-11-07 15:55:39 WARNING:cmor-fixer.py: Output file name /home/pchengi/outputdir/list-of-modified-files-2.txt already exists, trying /home/pchengi/outputdir/list-of-modified-files-3.txt
+2024-11-07 15:55:39 INFO:cmor-fixer.py: Setting metadata field branch_time_in_parent to 29218.0 in /mnt/CMIP6/siconca_SIday_EC-Earth3-Veg_historical_r1i1p1f1_gr_18800101-18801231.nc
+2024-11-07 15:55:39 INFO:cmor-fixer.py: Replacing the longitude and latitude t-grid vertices for vertices_longitude (none) in /mnt/CMIP6/chldiatos_Omon_EC-Earth3-ESM-1_abrupt-4xCO2_r1i1p1f1_gn_195401-195412.nc
+2024-11-07 15:55:39 INFO:cmor-fixer.py: Setting metadata field branch_time_in_parent to 29218.0 in /mnt/CMIP6/chldiatos_Omon_EC-Earth3-ESM-1_abrupt-4xCO2_r1i1p1f1_gn_195401-195412.nc
 ``` 
