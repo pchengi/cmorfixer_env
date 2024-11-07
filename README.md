@@ -7,15 +7,19 @@
 
 # Prerequisites
 
-You need the singularity program installed. Follow the instructions here, to install singularity on your machine.
+You need the apptainer program installed. Follow the instructions here, to install it on your machine.
+Apptainer was earlier called singularity and was renamed when it was moved into the Linux Foundation.
+On most systems, 'singularity' would simply be an alias to 'apptainer'.
+See [announcement](https://apptainer.org/news/community-announcement-20211130/)
 
-[https://singularity.lbl.gov/install-linux](https://singularity.lbl.gov/install-linux)
+[https://apptainer.org/docs/admin/latest/installation.html#installation-on-linux](https://apptainer.org/docs/admin/latest/installation.html#installation-on-linux)
 
 
 # To download a prebuilt singularity image:
 
 - If you'd like to use a prebuilt image, you could download from the link below; if you'd rather build the container yourself, follow the build instructing in the To build section.
-- [Link to prebuilt image of v3.0](https://esg-dn2.nsc.liu.se/virtualtestbed/cmorfixerenv.simg)
+- [Link to prebuilt image of v3.0 (legacy)](https://esg-dn2.nsc.liu.se/virtualtestbed/cmorfixerenv.simg)
+- [Link to prebuilt image of pre-v4.0](https://esg-dn2.nsc.liu.se/virtualtestbed/cmorfixerenv_pre4.0.simg)
 
 # To build
 ````
