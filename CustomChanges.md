@@ -29,5 +29,5 @@ mkdir -p $HOME/outputdir
 rm -f $HOME/outputdir/*
 sudo singularity build cmorfixerenv_post3_with_fix.simg Singularity
 singularity exec --bind testfiles:/mnt cmorfixerenv_post3_with_fix.simg bash /opt/scripts/cmorfixerwrapper.sh --verbose --olist $HOME/outputdir --npp 1 --dry /mnt/CMIP6
-singularity exec --bind testfiles:/mnt cmorfixerenv_post3_with_fix.simg bash /opt/scripts/cmorfixerwrapper.sh --verbose --olist $HOME/outputdir --npp 2 --metadata /mnt/recipe.json --dry /mnt/CMIP6
+singularity exec --bind testfiles:/mnt cmorfixerenv_post3_with_fix.simg bash /opt/scripts/cmorfixerwrapper.sh --verbose --olist $HOME/outputdir --npp 2 --meta /mnt/recipe.json --dry /mnt/CMIP6
 ```
