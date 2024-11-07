@@ -1,0 +1,26 @@
+From 6dbdd23ac1a90ab79eeecb45db8d7723bac8f430 Mon Sep 17 00:00:00 2001
+From: "Prashanth D. Rao" <pchengi@nsc.liu.se>
+Date: Thu, 7 Nov 2024 15:09:46 +0100
+Subject: [PATCH] fix indent for modified to ensure wrong writing of output
+ file does not occur when --meta is used
+
+---
+ cmor-fixer.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmor-fixer.py b/cmor-fixer.py
+index 7870451..4ac85cc 100755
+--- a/cmor-fixer.py
++++ b/cmor-fixer.py
+@@ -221,7 +221,7 @@ def fix_file(path, write=True, keepid=False, forceid=False, metadata=None, add_a
+                 log_overview_modified_attributes=log_overview_modified_attributes+'Set ' + attname + ' to ' + str(attval) + '. '
+                 if write:
+                     setattr(ds, attname, attval)
+-                modified = True
++                    modified = True
+     if modified and not keepid:
+         tr_id = '/'.join(["hdl:21.14100", (str(uuid.uuid4()))])
+         log.info("Setting tracking_id to %s for %s" % (tr_id, ds.filepath()))
+-- 
+2.45.2
+
