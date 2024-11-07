@@ -1,0 +1,26 @@
+From 02f6a039f74a0830ec6f45ae9c24f2b9d1519dda Mon Sep 17 00:00:00 2001
+From: "Prashanth D. Rao" <pchengi@nsc.liu.se>
+Date: Thu, 7 Nov 2024 13:40:42 +0100
+Subject: [PATCH] Ensure that float values in metadata json file does not cause
+ TypeErrors
+
+---
+ cmor-fixer.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmor-fixer.py b/cmor-fixer.py
+index 64f1c48..7870451 100755
+--- a/cmor-fixer.py
++++ b/cmor-fixer.py
+@@ -218,7 +218,7 @@ def fix_file(path, write=True, keepid=False, forceid=False, metadata=None, add_a
+             if (not hasattr(ds, attname) and add_attributes) or \
+                     (hasattr(ds, attname) and str(getattr(ds, attname)) != str(attval)):
+                 log.info("Setting metadata field %s to %s in %s" % (attname, attval, ds.filepath()))
+-                log_overview_modified_attributes=log_overview_modified_attributes+'Set ' + attname + ' to ' + attval + '. '
++                log_overview_modified_attributes=log_overview_modified_attributes+'Set ' + attname + ' to ' + str(attval) + '. '
+                 if write:
+                     setattr(ds, attname, attval)
+                 modified = True
+-- 
+2.45.2
+

@@ -2,8 +2,8 @@
 
 - A tool to create an environment to allow easy use of the [cmor-fixer tool](https://github.com/EC-Earth/cmor-fixer)
 
-- cmorfixer_env v3.0 is a singularity container which comes with preinstalled miniconda3 
-- Upstream cmor-fixer has now moved away from miniconda to mambaforge/miniforge and cmorfixer_env has also now done the same.
+- cmorfixer_env v3.0 (legacy) is a singularity container which comes with preinstalled miniconda3
+- Upstream cmor-fixer has now moved away from miniconda to miniforge and cmorfixer_env has also now done the same.
 
 # Prerequisites
 
@@ -51,7 +51,7 @@ script -c '/opt/cmor_fixer/cmor-fixer/cmor-fixer.py --verbose --forceid --olist 
 ````
 source /etc/bashrc
 activatecmorfixer
-script -c '/opt/cmor_fixer/cmor-fixer/cmor-fixer.py --verbose --forceid --olist --npp 1 --dry /mnt/CMIP6' scriptout_cmorfix_dryrun
+script -c '/opt/cmor_fixer/cmor-fixer/cmor-fixer.py --verbose --forceid --olist $HOME/outputdir --npp 1 --dry /mnt/CMIP6' scriptout_cmorfix_dryrun
 ````
 
 # Wrapper to cmor-fixer.py
