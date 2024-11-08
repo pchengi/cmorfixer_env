@@ -2,6 +2,7 @@
 
 - A tool to create an environment to allow easy use of the [cmor-fixer tool](https://github.com/EC-Earth/cmor-fixer)
 
+- cmorfixer_env v4.0 is a singularity container which comes with preinstalled miniforge3
 - cmorfixer_env v3.0 (legacy) is a singularity container which comes with preinstalled miniconda3
 - Upstream cmor-fixer has now moved away from miniconda to miniforge and cmorfixer_env has also now done the same.
 
@@ -18,8 +19,8 @@ See [announcement](https://apptainer.org/news/community-announcement-20211130/)
 # To download a prebuilt singularity image:
 
 - If you'd like to use a prebuilt image, you could download from the link below; if you'd rather build the container yourself, follow the build instructing in the To build section.
+- [Link to prebuilt image of v4.0](https://esg-dn2.nsc.liu.se/virtualtestbed/cmorfixerenv_pre4.0.simg)
 - [Link to prebuilt image of v3.0 (legacy)](https://esg-dn2.nsc.liu.se/virtualtestbed/cmorfixerenv.simg)
-- [Link to prebuilt image of pre-v4.0](https://esg-dn2.nsc.liu.se/virtualtestbed/cmorfixerenv_pre4.0.simg)
 
 # To build
 ````
@@ -36,20 +37,7 @@ sudo singularity build cmorfixerenv.simg Singularity
  singularity shell --bind <path to filesystem you want mounted on the container>:/mnt cmorfixerenv.simg
 ````
 
-# Using the container (v3.0 aka legacy)
-
-- Inside the container, do the following
-````
-source /etc/bashrc
-activateminiconda3
-conda activate cmorfixer
-````
-- Execute cmorfixer (present in /opt/cmor_fixer/cmor-fixer/cmor-fixer.py, in the container)
-````
-script -c '/opt/cmor_fixer/cmor-fixer/cmor-fixer.py --verbose --forceid --olist --npp 1 --dry /mnt/CMIP6/ScenarioMIP/EC-Earth-Consortium/EC-Earth3/ssp126/' scriptout_cmorfix_dryrun
-````
-
-# Using the container (post v3.0)
+# Using the container (v4.0)
 
 - Inside the container, do the following
 ````

@@ -19,6 +19,5 @@ From: debian
     /bin/bash -c 'source /etc/bashrc'
     /bin/bash -c 'source /opt/cmor_fixer/mamba/etc/profile.d/conda.sh'
     /bin/bash -c '/opt/cmor_fixer/mamba/bin/mamba update -y --name base mamba'
-    cd cmor-fixer && git checkout c38692c5cd6453f379997bde7b0f225f70a18ebe
-    git am </opt/patch-files/fix47.patch
+    cd cmor-fixer && git checkout v4.0
     /bin/bash -c '/opt/cmor_fixer/mamba/bin/mamba env create -f environment.yml'
